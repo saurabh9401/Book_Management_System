@@ -119,4 +119,18 @@ public class BookServiceImplementation implements BookService {
         }
         return false;
     }
+
+    /**
+     * Reduce Quantity of Books
+     */
+    @Override
+    public void reduceBook(Long id, int quantityToReduce) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException("Book with id:" + id + " is not registered. Use addNewBook to register."));
+
+        int totalCountAfterReduce = book.getTotalCount() - quantityToReduce;
+        book.setTotalCount(totalCountAfterReduce);
+
+        bookRepository.save(book);
+    }
 }

@@ -23,4 +23,6 @@ public interface BookService {
     List<Book> getBookByCategoryKeyWord(String keyword, Category category);
 
     boolean deleteBookById(@PathVariable Long id);
+
+    void reduceBook(Long id, int quantityToReduce);
 }

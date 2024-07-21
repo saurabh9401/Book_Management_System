@@ -20,6 +20,7 @@ import java.util.List;
  * 5)update a book
  * 6)get books by category/keywords
  * 7) Delete Book by Id
+ * 8) Reduce quantity of Books
  */
 
 @RestController
@@ -106,5 +107,15 @@ public class BookController {
             return "Book deleted successfully";
         else
             throw new BookNotFoundException("Book with ID " + id + " not found");
+    }
+
+    /**
+     * 8) Reduce Quantity of Books
+     */
+    @PutMapping("/reduce-book/{id}/{quantityToReduce}")
+    @ResponseStatus(HttpStatus.OK)
+    public void reduceBook(@PathVariable Long id,
+                        @PathVariable int quantityToReduce) {
+        bookService.reduceBook(id, quantityToReduce);
     }
 }
