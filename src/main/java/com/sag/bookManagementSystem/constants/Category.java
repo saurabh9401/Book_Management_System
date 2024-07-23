@@ -2,13 +2,13 @@ package com.sag.bookManagementSystem.constants;
 
 public enum Category {
 
-    literature(0),
-    action(1),
-    drama(2),
-    technology(3),
-    poetry(4),
-    media(5),
-    others(6);
+    LITERATURE(0),
+    ACTION(1),
+    DRAMA(2),
+    TECHNOLOGY(3),
+    POETRY(4),
+    MEDIA(5),
+    OTHERS(6);
 
     private final int value;
 
